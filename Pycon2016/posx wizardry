@@ -1,3 +1,58 @@
 Notes for File Descriptors, Unix sockets, and PosX wizardry
 
-I. 
+I. Custodia Secrets for Containers
+II. File Descriptors
+  A. Everything is a file/ Every I/O uses file descriptors
+    i. File descriptors are like a ticket
+
+III. Operating System 101
+  A. Dark Ages pre-Kernel
+  B. Kernel an important step to isolate processes
+    i. Everytime we want to talk to something we talk to the Kernel
+    ii. To comm, use a Syscall
+  C, Ensure closing the file because file descriptors are limited resource
+  D. File descriptor Tables
+    i. Can put some things into global state
+    ii. Open file Table
+
+
+IV. Spawn a new process
+  A. Fork
+    i. Clones a current process
+      a. inherits file descriptor table
+      b. doesn't inherit threading
+  B. Exec
+    i. replaces current program code
+      a. potential security risk
+      b. inherits file descriptor table unless cloexec()
+  C. subprocess.PIPE
+
+V. Network Sockets
+  A. TCP/UDP
+
+VI. Unix Sockets
+  A. Mix of pipes and network sockets
+    i. additional features and security setting since all internal
+  B. you change the addressing
+    ii. instead of talking to ip4 or ip6 you talk to unix
+  C. Abstract Namespace (lookup)
+  D. Peer credentials
+    i. pid, uid, gid
+  E. Unix sockets work between containers
+    i. SELinux
+    ii. Kernel translates pid  namespace
+    iii. multi-category security separation
+  F. can get the hash from pids
+  G. can send file descriptors over Unix Sockets
+    i. used in multi-processing
+    ii. seccomp sandboxing
+      a. prevents process from being able to do actions not allowed (open/socket/close/fork/exec)
+      b. communicates to broker rather than directly opening files and working with files
+
+VII. memory mapped i/o
+  A. mmap
+  B. memory fd
+    i. file sealing
+  C. efficient i/o with zero copy
+  D. event-driven I/o
+    i. select/poll/epoll
