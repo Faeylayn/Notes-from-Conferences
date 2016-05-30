@@ -1,0 +1,59 @@
+Noes on Code unto others
+
+I. Software is made out of people (Software is people!)
+  A. A 1700 line class is fine for a compiler, fine for users, not fine for other engineers
+  B. Your code needs to describe itself the way you would.
+    i. readability is often prioritized after being correct and efficient
+  C. Code needs to be cohesive
+    i. mixing function and convenience often makes it hard to follow the logic
+    ii. multiple layers of abstractions are a problem
+    iii. too many elements in it's API
+  D. requirements of any software change
+    i. understanding of the problem
+    ii. change must meet the need
+
+II. Relative value of learning a system from behaviors rather than from results
+  A. problems with readability is often with code structure rather than from proble domain
+  B. do where the doing is simplest
+    i. screen out the background noise
+  C. placing a code element at class scope raises questions
+    i. avoid unless neccessary
+      a. if the class is broken without this at class scope, put it at class scope
+  D. everything that can should go into module scope
+
+III. Class understanding
+  A. classes provide a way to structure and aggregate datat
+  B. purely abstract classes define types
+  C. manipulate existing classes
+  D. classes can create a way to make arbitrarily similar instances of types that are different based on time of defining
+  E. Classes sometimes want to be functions
+  F. Modules are better for creating namespaces than classes
+  G. enumerate polymorphism
+    i. abc module for polymorphism
+
+IV. Mixins
+  A. classes cannot use mixins without becoming that mixin
+
+V. Design of classes
+  A. layering violations with use of public API
+    i. makes it difficult to subclass
+      a. effective java 17 (look up)
+  B. avoid self-escape in class implementation(look up)
+  C. minimize instance state
+    i. operating on multiple threads if you forget to clear can become a mess
+    ii. long lived instance becomes an issue when not wanting to pass values down layers
+  D. making things default to private visibility
+    i. only promote it when you deliberately need to make something public for a public api or some such
+
+VI. When your judgment is compromised
+  A. enforce line limits and complexity limits
+  B. intermediate concepts
+    i. better to obvious than not obvious enough.
+    ii. it's only in the moment that it seems like this adds complexity
+
+VII. Don't abbreviate when naming
+
+VIII. sort your code elements in definition-before-use order
+  A. we don't want to be surprised
+  B. the users and maintainers are two different audiences
+    i. users should get documentation and maintainers should be written code for
