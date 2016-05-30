@@ -1,13 +1,64 @@
  Notes on Concurrency and Gevent
 
- I. 
+ I. Gevent a python library for asynchrounous I/o
+  A. what is a asycnchronous i/o
+  B. Multiprocessing
+    A. you'd need to spawn a new process for each user
+    B. unscalable
 
- II.
+  C. Multi threading
+    A. finicky, writing correct code is difficult, debugging it is tougher
+  D. twisted
+    i. callback hell
+    ii. complicated and long code
+  E. Green threads
+    i. user space
+    ii. they have to explicitly yield to each other can't be preempted
+    iii. 30000 concurrent threads
+    iv. greenlets are extremely lightweight, reads simply and as short as multiprocessing
 
- III.
 
- IV.
+ II. Going to the source
+  A. greenlet.switch()
+    i. switching into and out of green threads does not restart but resumes the execution of thread
+    ii. coroutines(look up)
+    iii. yields control on switch
+  B. manipulating the stack
+    i. virtual stack in a C virtual interpreter
+  C. initializing greenlet initializes the strut on the heap
+    i. reclaims the slice of stack since
+    ii. step slicing
+      a. copies the slice to the heap while first greenlet resumes
+    iii. switching out the stack without the computer being aware
 
- V.
+ III. libev
+  A. place to store the event handler callbacks
+  B. watches for the events and handles that
+  C. nonblocking sockets
+  D. loop.io_watch
+  E. loop blocks i/o waiting for the event
+    i. libev adds preblock watchers and post block watchers
+    ii. hook to integrate other event watchers into the event loop
+    iii. if there are coroutines ready to run, run then block
 
- VI.
+ IV. hub greenlet
+  A. one hub greenlet per thread
+    i. hub creates the greenlet and runs the event loop
+  B. integrates the switch function into the pre block watchers
+  C. g.join runs the loop (is what puts it all in motion)
+
+V. gevent monkey.patch_all()
+  A. gevent.socket
+    i. makes the sockets non blocking
+    ii. adds it into the loop
+  B. on network request sets IO watcher and runs the next in loop
+  C. after all the pre switches, blocks then run all the pending I/o watchers
+
+VI. drawbacks
+  A. no paralellization
+  B. no cooperative code
+  C. unless you use gevent sleep large threads
+
+VII. pluses
+  A. I/O bound apps highly concurrent 20-30k concurrent
+  B. used already at web scale
