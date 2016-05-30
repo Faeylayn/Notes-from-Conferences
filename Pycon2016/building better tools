@@ -1,9 +1,50 @@
 Notes on Building better tools
 
-I.
+I. History of tools
+  A. everything begins with version control
+  B. not even issue trackers were a given
+  C. Continuous integration
+  D. Code review process (look up)
 
-II.
+II. Emerging trends
+  A. Continuous integration for pull requests
+    i. test suites for proposed changes (yay)
+  B. Linting
+    i. lints can be stylistic or more tailored to security or feature linting
+  C. Coverage tracking
+    i. services and jenkins plugins automate this for continuous integration
+  D. livegrep
+    i. instantaneous regex search over a lot of code
+  E. mention-bot
+    i. mentions who might be best suited to reviewing a piece of code.
 
-III.
+III. Workflow
+  A. assumed to be small branch > pr > code review > master > deploy
 
-IV. 
+
+BUILDING MORE TAILORED TOOLS
+
+IV. Manual process is inferior to automation
+  A. Scalability
+  B. Flexibility
+  C. Debating merits of changes
+  D. you can see what the crap behavior is
+    i. processes diverge as development continues and less useful things are dropped or changed
+
+V. APIs
+  A. Issues can automate raising issues
+    i. visibility
+  B. organization for labels and the like
+
+VI. https cert expiration
+  A. tracking and scanning for expired certs
+  B. raising an issue
+
+VII. Auto-labeling
+
+VIII. updating requirements.txt automatically
+
+IX. UI change review
+  A. we already do this within the player >_>
+
+X. Approval process commit status
