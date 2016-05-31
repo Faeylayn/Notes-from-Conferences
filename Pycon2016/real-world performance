@@ -1,3 +1,59 @@
 Notes on Real-World Performance
 
-I. 
+I. Thinking about performance
+  A. Folk Wisdom Big O()
+    i. All of it is right
+    ii. rarely addresses the real issue
+
+II. Thinking critically about performance
+  A. latency
+    i. Where does the latency come from?
+      a. CPU < RAM < SSD <LAN < HDD < WAN
+      b. disk and network is where we incur the most latency
+    ii. monitoring is critical
+      a. if you can't measure what's going on in your system, you can't fix it.
+  B. It's almost always the Database
+
+III. Diving in
+  A. Most views of performance analysis are not useful for figuring out the problem
+
+IV. Shipwrecks in a bottle
+  A. SS Truculent query
+    i. slow queries
+    ii. looking at where latency is occuring by layer
+      a. you can see that sqlalchemy is what is slowest
+      b. in slow query log can be useful
+    iii. many slow queries will do one or more problem, non indexed fields, unneccessary joins, unneccessary subqueries
+  B. SS Highly Selective http://web.wreck.weekly
+    i. too many queries
+      a. can use a traceview to look through queries
+    ii. sqlalchemy does lazy relationships
+      a. it only traverses relationships when needed
+      b. when rendered on template each game needs to query for attrs
+  C. SS Oryx-Antlerson http://web.wreck.tlys
+    i. noisy-neighbor
+      a. the grouping on heatmap is much more loose after bump
+        1. suggests something changed in environment
+      b. might not be visible in the code itself
+    ii. process logging doesn't neccessarily tell what is going on by IP
+    iii. fixing noisy neighbor is figuring out who is beating up your database and why
+  D. SS Remembrance lost wreck.tlys.us/grenade/8
+    i. nginx takes far longer than expected
+    ii. memory issue
+      a. notoriously difficult to solve
+      b. memory is topping out a lot
+    iii. python memory allocation
+      a. python manages memory in a certain number of pools
+        1. python does not shrink the pool once memory is allocated even if the memory is no longer used
+      b. the worker processes hold onto memory and eventually run out
+      c. this is a case where throwing hardware at the problem is a decent solution
+      d. either that or refresh the process to clear those pools
+
+V. When trying to improve performance
+  A. Don't set out to improve performances
+    i. look at a problem and see how to solve it
+
+
+https://github.com/ggerrietts/the-wreck
+
+google slides?
