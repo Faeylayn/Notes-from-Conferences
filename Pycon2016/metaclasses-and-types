@@ -1,0 +1,24 @@
+Notes on Metaclasses and types
+
+I. object()
+  A. why can't you set an attribute to object() instance?
+  B. type(list) == type
+  C. import types
+
+II. type()
+  A. either takes one to tell =what it is
+  B. or takes three for a name, what it inherits (base class), and attributes
+  C. also lets you set attributes
+
+III. Metaclasses
+  A. classes : instances :: metaclasses : classes
+  B. type is a metaclass
+  C. creating metaclasses can inherit from type
+  D. metaclasses inherit class FooClass(metaclass=Meta)
+
+IV. Metaclasses can be used to dynamically control the creation of the new instances
+  A. Using a singleton metaclass, multiple inheritance can be handled
+
+V. object() has no __dict__
+  A. object is the featureless base class
+  B. including for things like ints
