@@ -1,0 +1,34 @@
+Ethical Design - 
+Design with the intent to do good
+What's the impact of what you're building?
+Surveillance Capitalism
+If your only monetization is selling users and their data then problems will follow you around
+Dark Patterns
+Giving people choices in such a way that make people do something they do not want to do
+Stress triggers/pressure triggers
+Human centered Design
+Is what we are doing good for users or just for conversion rates?
+Only collect data when you really need it
+what are you willing to give up to give people the good to make us happy
+It's not ok to build unethically
+DEsign with the intent to do better
+
+Javascript Diversity -
+Javascript ecosystem
+Interesting SegmentFault vs Stackoverflow
+English centric stackoverflow and differences for the rest of the world.
+Angular/cli increasing as of late
+convergent evolution
+
+12 Factor Apps by dockerization
+    declarative formats for setup automation
+    clean contract with the OS
+    minimize divergence between dev and prod
+    Scale up without significant changes
+Dockerfile > Image > Container
+Docker Engine - intermediate layer between the container and OS
+Using env files similar to our conf.properties files, docker can make dev/prod parity
+disposability
+12factor.net
+
+
