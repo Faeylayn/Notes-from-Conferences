@@ -20,7 +20,7 @@ English centric stackoverflow and differences for the rest of the world.
 Angular/cli increasing as of late
 convergent evolution
 
-12 Factor Apps by dockerization
+12 Factor Apps by dockerization -
     declarative formats for setup automation
     clean contract with the OS
     minimize divergence between dev and prod
@@ -31,4 +31,118 @@ Using env files similar to our conf.properties files, docker can make dev/prod p
 disposability
 12factor.net
 
+404 Fire Alarm Not Found -
+Intent of the user
+Emergency cord is only for when the train will cause bodily harm to someone
+Bad design is everywhere
 
+Tamagotchi - 
+Generators
+    yield keyword
+    generator.next() => step through
+    yield*
+    returning in a generator cancels the generator
+    generator.return() => cancels the generator
+Coroutines
+    cooperatively passes control between two routines
+    you can yield all sorts of things, promises etc.
+co module
+
+TensorFlow for Javascript -
+Inbrowser Machine learning
+layers API
+    Keras
+Core API
+    Mathemicals of Machine Learning
+Out of the box
+    training models in browser or node
+    pretrained models
+    retrain models
+Speech recognition
+tfjs-vis
+    the visor
+    available in the docs
+convolution layers run filters over an image and make decisions based on output
+
+After Lunch
+
+Internationalisation-
+I18n, letter between the two ends
+internationalization is about accessibility
+language, writing system, writing directions, pluralization, etc.
+    react intl
+    ecmascript international api
+        format.JS
+    unicode
+    always let the user choose their locale
+    common locale data repository
+    Internation components for unicode
+        icu message format
+    It's so much easier to bake into things early
+
+
+Being a good ally-
+    the tyranny of structurelessness
+        not having structure makes it easier to maintain the status quo
+        spread out power
+        rotate roles
+        spread of information
+        access to resources
+    stop calling people talented - people worked their asses off to gain expertise
+    screw civility forget fairness, consider power
+        you can become the problem by voicing the problem
+        work hard and people won't notice
+        underestimated, ignored and stymied
+        enforce inclusion instead of civility
+        Have a little more leeway
+    Assume it's you
+        When you are on the upward side it's on you to level the field
+    Spend your social capital
+        sarahghp.com/ally.pdf
+    
+How does Javascript Math
+coercion - implicitly converting a value of one type to another
+    adding a number and a string converts the number to a string and concatenates
+    adding arrays
+    if either a or b is a string or its primitive default value is a string
+    + casts anything to a number
+    {} is ambiguous
+experiment/guess/research
+
+
+Microservices - 
+assumption: microservices are only for companies the size of google facebook or amazon
+not true
+software is easy to write hard to change
+coupling is the enemy of change
+make the monolith the choice that has to justify itself
+problem with microservices is lack of familiarity
+one location where many concerns are colocated
+what is a service
+    autonomy
+    they aren't asked and do not ask for anything
+how do services do anything
+    store the sequence of events
+The pieces of a microservice based system
+    services
+    Application
+    users
+    message bus
+    read models
+    Aggregators - shape models
+greg young
+
+Keyboard accessibility
+if an application is not keyboard it will impact the largest number of users
+mouse only interaction
+focus indicator
+navigation is non intuitive
+tab navigation insufficient
+event.preventDefault - very powerful can break a lot of things
+    never trap tab press
+semantic html - use the tags for what you want
+tabindex=0 allows a keyboard to reach non standard
+WAI-ARIA
+role, state, and property
+guided focus management
+    managing modals
